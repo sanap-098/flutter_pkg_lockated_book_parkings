@@ -6,6 +6,8 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'parking_seat_booking.g.dart';
 
+
+
 @HiveType(typeId: 14)
 @JsonSerializable()
 class ParkingSeatBooking {

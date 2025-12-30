@@ -31,7 +31,7 @@ class ParkingSeatBookingAdapter extends TypeAdapter<ParkingSeatBooking> {
       wingName: fields[11] as String?,
       areaName: fields[12] as String?,
       floorName: fields[13] as String?,
-      //attendance: (fields[14] as List?)?.cast<SeatBookingAttendance>(),
+      attendance: (fields[14] as List?)?.cast<SeatBookingAttendance>(),
       floorId: fields[15] as int?,
       buildingId: fields[16] as int?,
       wingId: fields[17] as int?,
@@ -42,7 +42,7 @@ class ParkingSeatBookingAdapter extends TypeAdapter<ParkingSeatBooking> {
       cancelBy: fields[22] as String?,
       parkingImageUrl: fields[23] as String?,
       categoryName: fields[24] as String?,
-      //showSchedule: fields[25] as ShowSchedule?,
+      showSchedule: fields[25] as ShowSchedule?,
       canCancel: fields[26] as bool?,
     );
   }
@@ -80,7 +80,7 @@ class ParkingSeatBookingAdapter extends TypeAdapter<ParkingSeatBooking> {
       ..writeByte(13)
       ..write(obj.floorName)
       ..writeByte(14)
-      //..write(obj.attendance)
+      ..write(obj.attendance)
       ..writeByte(15)
       ..write(obj.floorId)
       ..writeByte(16)
@@ -102,7 +102,7 @@ class ParkingSeatBookingAdapter extends TypeAdapter<ParkingSeatBooking> {
       ..writeByte(24)
       ..write(obj.categoryName)
       ..writeByte(25)
-     // ..write(obj.showSchedule)
+      ..write(obj.showSchedule)
       ..writeByte(26)
       ..write(obj.canCancel);
   }
@@ -139,10 +139,10 @@ ParkingSeatBooking _$ParkingSeatBookingFromJson(Map<String, dynamic> json) =>
       wingName: json['wing_name'] as String?,
       areaName: json['area_name'] as String?,
       floorName: json['floor_name'] as String?,
-      // attendance: (json['attendance'] as List<dynamic>?)
-      //     ?.map(
-      //         (e) => SeatBookingAttendance.fromJson(e as Map<String, dynamic>))
-      //     .toList(),
+      attendance: (json['attendance'] as List<dynamic>?)
+          ?.map(
+              (e) => SeatBookingAttendance.fromJson(e as Map<String, dynamic>))
+          .toList(),
       floorId: (json['floor_id'] as num?)?.toInt(),
       buildingId: (json['building_id'] as num?)?.toInt(),
       wingId: (json['wing_id'] as num?)?.toInt(),
@@ -153,10 +153,10 @@ ParkingSeatBooking _$ParkingSeatBookingFromJson(Map<String, dynamic> json) =>
       cancelBy: json['cancel_by'] as String?,
       parkingImageUrl: json['parking_image_url'] as String?,
       categoryName: json['category_name'] as String?,
-      // showSchedule: json['show_schedule'] == null
-      //     ? null
-      //     : ShowSchedule.fromJson(
-      //         json['show_schedule'] as Map<String, dynamic>),
+      showSchedule: json['show_schedule'] == null
+          ? null
+          : ShowSchedule.fromJson(
+              json['show_schedule'] as Map<String, dynamic>),
       canCancel: json['can_cancel'] as bool?,
       qrCodeUrl: json['qr_code_url'] as String?,
     );
@@ -177,7 +177,7 @@ Map<String, dynamic> _$ParkingSeatBookingToJson(ParkingSeatBooking instance) =>
       'wing_name': instance.wingName,
       'area_name': instance.areaName,
       'floor_name': instance.floorName,
-      //'attendance': instance.attendance,
+      'attendance': instance.attendance,
       'floor_id': instance.floorId,
       'building_id': instance.buildingId,
       'wing_id': instance.wingId,
@@ -188,7 +188,7 @@ Map<String, dynamic> _$ParkingSeatBookingToJson(ParkingSeatBooking instance) =>
       'cancel_by': instance.cancelBy,
       'parking_image_url': instance.parkingImageUrl,
       'category_name': instance.categoryName,
-     // 'show_schedule': instance.showSchedule,
+      'show_schedule': instance.showSchedule,
       'can_cancel': instance.canCancel,
       'qr_code_url': instance.qrCodeUrl,
     };

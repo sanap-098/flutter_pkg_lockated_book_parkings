@@ -4,6 +4,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_pkg_lockated_book_parking/core/themes/theme_view_model.dart';
 import 'package:flutter_pkg_lockated_book_parking/features/models/parking_booking/parking_booking_building/parking_booking_building_model/parking_booking_building_model.dart';
 import 'package:flutter_pkg_lockated_book_parking/features/providers/parking_booking/parking_booking_create_provider.dart';
+import 'package:flutter_pkg_lockated_book_parking/features/providers/parking_booking/parking_booking_provider.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
@@ -73,8 +74,15 @@ class _BookParkingCalendarScreenState extends State<BookParkingCalendarScreen> {
                 Provider.of<ThemeViewModel>(context, listen: false);
             Navigator.push(context, MaterialPageRoute(
               builder: (context) {
-                return ChangeNotifierProvider.value(
-                  value: themeViewModel,
+                // return ChangeNotifierProvider.value(
+                //   value: themeViewModel,
+                return MultiProvider(
+            providers: [
+              ChangeNotifierProvider.value(value: themeViewModel),
+              ChangeNotifierProvider(
+                create: (_) => ParkingBookingProvider(),
+              ),
+            ],
                   child: const ParkingBookingsScreen(),
                 );
               },

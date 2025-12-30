@@ -29,3 +29,4 @@ Map<String, dynamic> _$ParkingBookingSchedulesSlotModelToJson(
       'ampm': instance.ampm,
       'isSelected': instance.isSelected,
     };
+

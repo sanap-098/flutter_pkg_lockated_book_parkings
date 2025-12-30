@@ -9,10 +9,10 @@ part of 'seat_configuration_detail_model.dart';
 SeatConfigurationDetailModel _$SeatConfigurationDetailModelFromJson(
         Map<String, dynamic> json) =>
     SeatConfigurationDetailModel(
-      id: (json['id'] as num?)?.toInt(),
-      resourceId: (json['resource_id'] as num?)?.toInt(),
+      id: json['id'] as int?,
+      resourceId: json['resource_id'] as int?,
       resourceType: json['resource_type'] as String?,
-      noOfSeats: (json['no_of_seats'] as num?)?.toInt(),
+      noOfSeats: json['no_of_seats'] as int?,
       bookBeforeMin: json['book_before_min'],
       cancelBeforeMin: json['cancel_before_min'],
       advanceMin: json['advance_min'],
@@ -27,16 +27,7 @@ SeatConfigurationDetailModel _$SeatConfigurationDetailModelFromJson(
       breakStartMin: json['break_start_min'],
       breakEndHour: json['break_end_hour'],
       breakEndMin: json['break_end_min'],
-      createdById: (json['created_by_id'] as num?)?.toInt(),
-      // bbDHM: json['bb_dhm'] == null
-      //     ? null
-      //     : DHMModel.fromJson(json['bb_dhm'] as Map<String, dynamic>),
-      // abDHM: json['ab_dhm'] == null
-      //     ? null
-      //     : DHMModel.fromJson(json['ab_dhm'] as Map<String, dynamic>),
-      // cbDHM: json['cb_dhm'] == null
-      //     ? null
-      //     : DHMModel.fromJson(json['cb_dhm'] as Map<String, dynamic>),
+      createdById: json['created_by_id'] as int?,
       openingTimings: json['opening_timings'] as String?,
       breakTimings: json['break_timings'] as String?,
       seatCategory: json['seat_category'] as String?,
@@ -65,10 +56,6 @@ Map<String, dynamic> _$SeatConfigurationDetailModelToJson(
       'break_end_hour': instance.breakEndHour,
       'break_end_min': instance.breakEndMin,
       'created_by_id': instance.createdById,
-      // 'seat_details': instance.seatDetails, // Removed this line
-      // 'bb_dhm': instance.bbDHM,
-      // 'ab_dhm': instance.abDHM,
-      // 'cb_dhm': instance.cbDHM,
       'opening_timings': instance.openingTimings,
       'break_timings': instance.breakTimings,
       'seat_category': instance.seatCategory,
